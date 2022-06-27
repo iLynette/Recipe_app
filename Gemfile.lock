@@ -237,6 +237,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2014.5)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.2.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -275,7 +277,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   turbo-rails
-  tzinfo-data
+  tzinfo-data (= 1.2014.5)
   web-console
   webdrivers
 
