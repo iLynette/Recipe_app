@@ -4,6 +4,6 @@ class User < ApplicationRecord
   # before_action :authenticate_user!
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
-  has_many :recipe
-  has_many :food
+  has_many :recipes
+  has_many :foods
 end
