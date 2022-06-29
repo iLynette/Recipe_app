@@ -39,6 +39,8 @@ gem 'jbuilder'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', '1.2014.5'
 
+gem 'devise'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -63,6 +65,8 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
+
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
