@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @current_user = current_user
-    @recipes = Recipe.where(user: @current_user)
+    @recipes = @current_user.recipes
   end
 
   # GET /recipes/1 or /recipes/1.json
