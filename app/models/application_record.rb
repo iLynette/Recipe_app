@@ -1,5 +1,3 @@
 class ApplicationRecord < ActiveRecord::Base
-  def current_user
-    User.first
-  end
+  primary_abstract_class
 end
