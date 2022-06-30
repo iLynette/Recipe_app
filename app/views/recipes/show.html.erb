@@ -1,1 +1,18 @@
-<h2>Recipe deets</h2>
+<div class="path">
+  <%= link_to 'Recipes', recipes_path, class:"rec" %>
+</div>
+
+<div>
+  <h2 class="names"><%= @recipe.name %></h2>
+  <div class="holder">
+    <p class="prep">Preparation time: <%= @recipe.preparation_time %>hours</p>
+    <p class="cook">Cooking time: <%= @recipe.cooking_time %>hours</p>
+    <p class="steps">Cooking steps: <%= @recipe.description %></p>
+  </div>
+  <div class="btns">
+    <button type="button">Generate shopping list</button>
+    <button type="button">Add ingredient</button>
+  </div>
+</div>
+
+
