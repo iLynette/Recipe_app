@@ -1,41 +1,32 @@
 class FoodRecipesController < ApplicationController
-  before_action :set_food_recipe, only: %i[show edit update destroy]
+  before_action :set_food_recipe, only: %i[show destroy]
 
-  # GET /food_recipes or /food_recipes.json
-  def index
-    @food_recipes = FoodRecipe.all
-  end
-
-  # GET /food_recipes/1 or /food_recipes/1.json
-  def show; end
-
-  # GET /food_recipes/new
   def new
     @food_recipe = FoodRecipe.new
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
-  # GET /food_recipes/1/edit
-  def edit; end
-
-  # POST /food_recipes or /food_recipes.json
   def create
-    @food_recipe = FoodRecipe.new(food_recipe_params)
-
+    @recipe = Recipe.find(params[:recipe_id])
+    food_recipe = FoodRecipe.new(params.require(:food_recipe).permit(:food_id, :quantity))
+    food_recipe.recipe = recipe
     respond_to do |format|
-      if @food_recipe.save
-        format.html { redirect_to food_recipe_url(@food_recipe), notice: 'Food recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @food_recipe }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @food_recipe.errors, status: :unprocessable_entity }
+      format.html do
+        if food_recipe.save
+          flash[:success] = 'Ingredient saved successfully'
+          redirect_to recipe_url(recipe.id)
+        else
+          flash[:error] = 'Error: Ingredient could not be saved'
+          redirect_to new_recipe_food_recipe_url
+        end
       end
     end
   end
 
-  # DELETE /food_recipes/1 or /food_recipes/1.json
   def destroy
+    @food_recipe = FoodRecipe.find(params[:id])
+    @recipe = food_recipe.recipe
     @food_recipe.destroy
-
     respond_to do |format|
       format.html { redirect_to food_recipes_url, notice: 'Food recipe was successfully destroyed.' }
       format.json { head :no_content }
@@ -44,12 +35,10 @@ class FoodRecipesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_food_recipe
     @food_recipe = FoodRecipe.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def food_recipe_params
     params.require(:food_recipe).permit(:quantity)
   end

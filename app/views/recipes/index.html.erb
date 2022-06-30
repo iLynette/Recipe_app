@@ -1,1 +1,23 @@
-<p>This is recipes index</p>
+<% if @current_user.nil? %>
+  <h2>You need to first login to see the list!</h2>
+<% else %>
+  <h1 class="title">Your recipes</h1>
+  <% if @recipes.blank? %>
+    <h2>No recipes yet!<h2>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <article>
+        <div>
+          <h2><%= link_to recipe.name, recipe_path(recipe.id), method: :get %></h2>
+          <% if can? :destroy, recipe %>
+            <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, class:'dbtn' %>
+          <% end %>
+        </div>
+        <div>
+          <p><%= recipe.description %></p>
+        </div>
+      </article>
+    <% end %>  
+  <% end %>
+  <%= button_to 'Add new recipe', new_recipe_path, method: :get, class:"addb" %>
+<% end %>

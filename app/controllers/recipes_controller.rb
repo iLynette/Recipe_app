@@ -2,38 +2,39 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @current_user = current_user
-    @recipes = @current_user.recipes
+    @recipes = if current_user.nil?
+                 []
+               else
+                 @current_user.recipes
+               end
   end
 
-  # GET /recipes/1 or /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-    @user = @recipe.user
-    @food_recipes = @recipe.food_recipes
+    @food_recipes = FoodRecipe.includes(:food).where(recipe_id: @recipe.id)
   end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # POST /recipes or /recipes.json
   def create
-    @recipe = current_user.recipes.new(recipe_params)
-
+    user = current_user
+    recipe = Recipe.new(params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public))
+    recipe.user = user
     respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      format.html do
+        if recipe.save
+          flash[:success] = 'Recipe saved successfully'
+          redirect_to recipes_url
+        else
+          flash[:error] = 'Error: recipe could not be saved'
+          redirect_to new_recipes_url
+        end
       end
     end
   end
 
-  # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
@@ -43,12 +44,10 @@ class RecipesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
