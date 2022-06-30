@@ -1,0 +1,30 @@
+<%= form_with model: food, url: foods_path  do |form| %>
+
+      <div>
+         <%= form.label :name %><br />
+        <%= form.text_field :name, autofocus: true, autocomplete: "text" %>
+        <% food.errors.full_messages_for(:name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div><br />
+
+      <div>
+       <%= form.label :measurement_unit %><br />
+        <%= form.text_field :measurement_unit, autofocus: true %>
+        <% food.errors.full_messages_for(:measurement_unit).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+    <div>
+     <%= form.label :price %><br />
+        <%= form.number_field :price, autofocus: true %>
+        <% food.errors.full_messages_for(:price).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
