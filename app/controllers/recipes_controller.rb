@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
           redirect_to recipes_url
         else
           flash[:error] = 'Error: recipe could not be saved'
-          redirect_to new_recipes_url
+          redirect_to new_recipe_url
         end
       end
     end
