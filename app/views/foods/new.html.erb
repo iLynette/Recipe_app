@@ -1,31 +1,11 @@
-<%= form_with_model: food, url: foods_path do |form| %>
+<p style="color: green"><%= notice %></p>
 
-    <div>
-        <%= form.label :name %><br />
-        <%= form.text_field :name, autofocus: true, autocomplete: "text" %>
-        <% foods.errors.full_messages_for(:name).each do |message| %>
-        <div><%= message %></div>
-        <% end %>
-    </div><br />
+<h1>Add New Food</h1>
 
-      <div>
-       <%= form.label :measurement_unit %><br />
-        <%= form.text_field :measurement_unit, autofocus: true %>
-        <% food.errors.full_messages_for(:measurement_unit).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      </div>
-    </div>
+<%= render "form", food: @food %>
 
-       <div>
-     <%= form.label :price %><br />
-        <%= form.number_field :price, autofocus: true %>
-        <% food.errors.full_messages_for(:price).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      </div>
-    </div>
-     <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<br>
+
+<div>
+  <%= link_to "Back to foods", foods_path %>
+</div>
