@@ -10,10 +10,15 @@
         <% @public_recipes.each do |public_recipe| %>
           <% sum = 0 %>
           <%= link_to recipe_path(public_recipe.id) do %>
-            <div>
-              <div class="public">
+            <div class="public">
+              <div class="publ">
                 <h1><%= public_recipe.name %></h1>
                 <p><%= "By: #{public_recipe.user.name}" %></p>
+              </div>
+              <div class="detail">
+              <p class="deets"><%= "Total food items: #{public_recipe.food_recipes.count}" %></p>
+              <% public_recipe.food_recipes.each {|food| sum += food.quantity * food.food.price} %>
+              <p"><span><%= "Total Price $#{sum}" %></span></p>
               </div>
             </div>
           <% end %>
