@@ -19,17 +19,17 @@
 
         <p class="sname">
             <%= f.label :description %><br>
-            <%= f.text_area :description, placeholder: 'Recipe description' %><br>
+            <%= f.text_area :description, placeholder: 'Cooking steps' %><br>
         </p>
 
         <p class="sname">
             <%= f.label :preparation_time %><br>
-            <%= f.number_field :preparation_time, step: :any %><br>
+            <%= f.number_field :preparation_time, step: :any, placeholder: '00:00' %><br>
         </p>
 
         <p class="sname">
             <%= f.label :cooking_time %><br>
-            <%= f.number_field :cooking_time, step: :any %><br>
+            <%= f.number_field :cooking_time, step: :any, placeholder: '00:00' %><br>
         </p>
 
         <p class="sname">
