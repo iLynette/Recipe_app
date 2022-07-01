@@ -10,8 +10,7 @@
     <p class="steps">Cooking steps: <%= @recipe.description %></p>
   </div>
   <div class="btns">
-    <button type="button">Generate shopping list</button>
-    <button type="button">Add ingredient</button>
+ <%= button_to 'Generate shopping list', general_shopping_lists_path, :method => "get" %>    <button type="button">Add ingredient</button>
   </div>
 </div>
 

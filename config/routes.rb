@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "recipes#index"
   resources :food_recipes, :foods, :recipes
- 
+  resources :general_shopping_lists, only: %i[index], path: '/general_shopping_list'
 end
