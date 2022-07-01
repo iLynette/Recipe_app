@@ -1,5 +1,4 @@
 
-
 body {
   width: 100%;
   padding: 0;
@@ -58,7 +57,6 @@ body {
   display: flex;
 }
 
-
 .navigation {
   padding: 5px 0;
   margin: 5px auto;
@@ -82,11 +80,11 @@ body {
 }
 
 #shopping-list {
-    align-items: center;
-    gap: 24px;
-  }
-  
- .summary {
-    display: flex;
-    gap: 16px;
-  }
+  align-items: center;
+  gap: 24px;
+}
+
+.summary {
+  display: flex;
+  gap: 16px;
+}
