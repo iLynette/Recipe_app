@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'general_shopping_lists/index'
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :foods
   resources :recipes
@@ -10,5 +9,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "recipes#index"
   resources :food_recipes, :foods, :recipes
- 
+  resources :general_shopping_lists, only: %i[index], path: '/general_shopping_list'
 end
