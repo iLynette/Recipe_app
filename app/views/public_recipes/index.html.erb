@@ -6,11 +6,12 @@
       </div>
     <% else %>
       <div>
+      <h1 class="pub">Public Recipes</h1>
         <% @public_recipes.each do |public_recipe| %>
           <% sum = 0 %>
           <%= link_to recipe_path(public_recipe.id) do %>
             <div>
-              <div class="w-1/3">
+              <div class="public">
                 <h1><%= public_recipe.name %></h1>
                 <p><%= "By: #{public_recipe.user.name}" %></p>
               </div>
