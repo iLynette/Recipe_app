@@ -1,0 +1,31 @@
+<div class="navigation">
+  <div>
+    
+    <nav>
+      <ul class="items">
+      <%= link_to "Recipe App", root_path, class: "root" %>
+        <li class="item">
+          <%= link_to "Foods", foods_path %>
+        </li>
+        <li class="item">
+          <%= link_to "Recipes", recipes_path %>
+        </li>
+        <li class="item">
+          <%= link_to "Public Recipes", public_recipes_path %>
+        </li>
+        <% if current_user %>
+          <li class="bitn">
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Log in', new_user_session_path, class: "login" %>
+          </li>
+          <li class="mmm">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "signin" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

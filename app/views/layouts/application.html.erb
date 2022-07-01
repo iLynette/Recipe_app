@@ -11,6 +11,9 @@
   </head>
 
   <body>
+  <header>
+    <%= render "layouts/navbar" %>
+  </header>
     <%= yield %>
     <% flash.each do |name, message| %>
     <div class="<%= name %>"><%= message %></div>
