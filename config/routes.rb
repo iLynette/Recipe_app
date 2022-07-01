@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'general_shopping_lists/index'
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :foods
   resources :recipes
