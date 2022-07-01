@@ -6,7 +6,7 @@
     <h2>No recipes yet!<h2>
   <% else %>
     <% @recipes.each do |recipe| %>
-      <article>
+      <article class="res">
         <div>
           <h2><%= link_to recipe.name, recipe_path(recipe.id), method: :get %></h2>
           <% if can? :destroy, recipe %>

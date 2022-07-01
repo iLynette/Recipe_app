@@ -1,5 +1,7 @@
 class PublicRecipesController < ApplicationController
   def index
-    @public_recipes = Recipe.includes(:user, food_recipes: [:food])where('public = true').order(created_at: :desc)
+  
+    @public_recipes = Recipe.includes(:food_recipes, :user).where('public = true').order(id: :desc)
+    
   end
 end
