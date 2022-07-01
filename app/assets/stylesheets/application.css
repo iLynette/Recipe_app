@@ -71,3 +71,25 @@ body {
   gap: 50px;
   display: flex;
 }
+
+.navigation {
+  padding: 5px 0;
+  margin: 5px auto;
+  background-color: #fff;
+  align-items: center;
+}
+
+.items {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  box-shadow: 2px 3px #f0eeee;
+  list-style: none;
+  padding-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.item {
+  list-style: none;
+  color: #000;
+}
