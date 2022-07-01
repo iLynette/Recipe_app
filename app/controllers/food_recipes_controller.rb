@@ -1,8 +1,6 @@
 class FoodRecipesController < ApplicationController
-
   def new
     @foods = Food.all
-    
   end
 
   def create

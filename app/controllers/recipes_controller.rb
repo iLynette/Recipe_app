@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-
   def index
     @recipes = if current_user.nil?
                  []
