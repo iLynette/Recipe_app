@@ -20,6 +20,7 @@
                 <tr>
                     <td class="food-name"><%= food[:name] %></td>
                     <td> <%= "#{food[:total_quantity]}""#{food[:measurement_unit]}" %></td>
+                    <td>$<%= number_with_precision(food[:price], precision: 2) %></td> 
                 </tr>
             <% end %>
         </tbody>

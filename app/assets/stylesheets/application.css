@@ -93,6 +93,13 @@ body {
     margin: 8px 0 16px auto;
 } */
 
+#foods-index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 50%;
+}
 #foods-index table{
     border-collapse: collapse;
     border: gray 2px solid;
@@ -122,6 +129,7 @@ tbody td {
     color: black;
     padding: 8px;
     cursor: pointer;
-    margin: 8px 0 16px auto;
-    justify-content: right;
+    margin: 38px -310px 136px auto;
+   
+    
 }
