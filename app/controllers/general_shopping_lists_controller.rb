@@ -12,7 +12,8 @@ class GeneralShoppingListsController < ApplicationController
 
       {
         name: food.name,
-        measurement_unit: food.measurement_unit
+        measurement_unit: food.measurement_unit,
+        price: food.price
       }
     end.compact
   end
