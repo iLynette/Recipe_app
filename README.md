@@ -2,10 +2,8 @@
 
 > The Recipe app keeps track of all the users' recipes and ingredients. It will allow the user to save ingredients, keep track of what they have, create recipes, and generate a shopping list based on what they have and what they are missing from a recipe. Also, since sharing recipes is an important part of cooking, the app should allow the user to make them public so anyone can access them.
 
-![screenshot](file:///Users/lynette/Desktop/Screen%20Shot%202022-07-02%20at%2012.02.14%20PM.png)
-
 > ORM Diagram: 
-> ![diagram](https://github.com/microverseinc/curriculum-rails/blob/main/recipe-app/images/recipe_app_erd.png)
+> ![diagram](https://github.com/microverseinc/curriculum-rails/blob/main/recipe-app/images/recipe_erd_2_members.png)
 
 
 ## Built With
