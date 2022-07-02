@@ -93,43 +93,42 @@ body {
     margin: 8px 0 16px auto;
 } */
 
-#foods-index{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    right: 50%;
+#foods-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: 50%;
 }
-#foods-index table{
-    border-collapse: collapse;
-    border: gray 2px solid;
+
+#foods-index table {
+  border-collapse: collapse;
+  border: gray 2px solid;
 }
 
 tbody tr:nth-of-type(odd) {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 tbody td {
-    border-left: gray 2px solid;
-    border-right: gray 2px solid;
-    padding: 0 8px;
+  border-left: gray 2px solid;
+  border-right: gray 2px solid;
+  padding: 0 8px;
 }
 
 .food-name {
-    text-align: center;
+  text-align: center;
 }
 
 #foods-index td .btn {
-    background-color: unset;
-    border: none;
+  background-color: unset;
+  border: none;
 }
 
 .add-new {
-    text-decoration: none;
-    color: black;
-    padding: 8px;
-    cursor: pointer;
-    margin: 38px -310px 136px auto;
-   
-    
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  cursor: pointer;
+  margin: 38px -310px 136px auto;
 }
