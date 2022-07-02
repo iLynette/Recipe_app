@@ -1,0 +1,44 @@
+<div>
+    <div>
+        <%= link_to ' Recipes', recipes_path %>
+    </div>
+    <h2>Add new recipe</h2>
+    <% if @recipe.errors.any? %>
+    <h2>Your recipe couldn not be saved, here is why</h2>
+    <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+    <%= form_with model: @recipe, url: recipes_path, method: :post do |f| %>
+        <p class="sname">
+            <%= f.label :name %><br>
+            <%= f.text_field :name, placeholder: 'Recipe name' %><br>
+        </p>
+
+        <p class="sname">
+            <%= f.label :description %><br>
+            <%= f.text_area :description, placeholder: 'Cooking steps' %><br>
+        </p>
+
+        <p class="sname">
+            <%= f.label :preparation_time %><br>
+            <%= f.number_field :preparation_time, step: :any, placeholder: '00:00' %><br>
+        </p>
+
+        <p class="sname">
+            <%= f.label :cooking_time %><br>
+            <%= f.number_field :cooking_time, step: :any, placeholder: '00:00' %><br>
+        </p>
+
+        <p class="sname">
+            <%= f.label :public %><br>
+            <%= f.check_box :public %><br>
+        </p>
+
+        <p class="sname">
+            <%= f.submit "Add Recipe" %>
+        </p>
+    <% end %>
+</div>

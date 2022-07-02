@@ -1,0 +1,28 @@
+<section id="shopping-list">
+    <h2>Shopping List</h2>
+
+    <div class="summary">
+        <h3>Amount of food items to buy: <%= @foods.length %></h3>
+        <h3>
+            Total value of food needed: $<%= number_with_precision(@total_price, precision: 2) %>
+        </h3>
+    </div>
+    <table class="ingredients-table">
+        <thead>
+            <tr>
+                <th>Food</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @foods.each do |food| %>
+                <tr>
+                    <td class="food-name"><%= food[:name] %></td>
+                    <td> <%= "#{food[:total_quantity]}""#{food[:measurement_unit]}" %></td>
+                    <td>$<%= number_with_precision(food[:price], precision: 2) %></td> 
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>

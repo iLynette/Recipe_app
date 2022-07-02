@@ -1,0 +1,41 @@
+<div class="path">
+  <%= link_to 'Recipes', recipes_path, class:"rec" %>
+</div>
+
+<div>
+  <h2 class="names"><%= @recipe.name %></h2>
+  <div class="holder">
+    <p class="prep">Preparation time: <%= @recipe.preparation_time %>hours</p>
+    <p class="cook">Cooking time: <%= @recipe.cooking_time %>hours</p>
+    <p class="steps">Cooking steps: <%= @recipe.description %></p>
+  </div>
+  <div class="btns">
+ <%= button_to 'Generate shopping list', general_shopping_lists_path, :method => "get" %>
+ <%= link_to 'Add ingredient', new_food_recipe_path(recipe_id: @recipe.id), method: :get %>
+ </div>
+ <hr>
+ <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @food_recipes.each do |food_recipe| %>
+            <tr class="tables">
+              <td><%= food_recipe.food.name %></td>
+              <td><%= food_recipe.quantity %> <%= food_recipe.food.measurement_unit %></td>
+              <td><%= food_recipe.quantity * food_recipe.food.price %></td>
+              <% if can? :destroy, FoodRecipe %>
+                <td><%= button_to 'Delete', food_recipe_path(id: food_recipe.id), method: :delete, class: 'del' %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
+

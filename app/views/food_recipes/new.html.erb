@@ -1,0 +1,24 @@
+<%puts params%>
+<div>
+  <div>
+  <div class="emm">
+      <%= link_to '< Recipes', recipes_path(params[:recipe_id])%>
+    </div> 
+    <div>
+      <%=form_with url: food_recipes_url(recipe_id: params[:recipe_id]), scope: :recipe_food do |f| %>
+        <div>
+          <div class="sfood">
+            <%= f.select :food_id, @foods.collect { |food| [food.name, food.id] }, :prompt => 'Select an Ingredient', class: 'sinn', required: true %>
+          </div>
+          <div>
+            <%= f.label :quantity, 'Quantity:' %>
+            <%= f.number_field :quantity, step: :any, required: true, class: 'numbr'%>
+          </div>
+        </div>
+        <div>
+          <%= f.submit "Add Ingredient", class: 'iadd'%>
+        </div> 
+      <% end %>
+    </div>
+  </div>
+</div>
